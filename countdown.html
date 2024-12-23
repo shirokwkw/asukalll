@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How long we've been together?</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+  <link rel="stylesheet" href="countdown.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+<body>
+  <div class="container" data-aos="fade-down"
+  data-aos-anchor-placement="top-bottom">
+    <!-- Photo Section -->
+    <div class="photo">
+      <img src="https://media1.tenor.com/m/-wfX4Rj7a8oAAAAC/tkthao219-bubududu.gif alt="Photo">
+    </div>
+
+    <!-- Timer & Text Section -->
+    <div class="content" data-aos="fade-left"
+    data-aos-anchor="#example-anchor"
+    data-aos-offset="800"
+    data-aos-duration="500">
+      <h1>How Long We've Been Together</h1>
+      <div class="timer" id="countdown">
+        <!-- Countdown boxes will be dynamically shown here -->
+      </div>
+    </div>
+
+    <!-- Next Arrow Below Timer (Now on the right side) -->
+    <div class="next" onclick="navigateNext()">
+      <span class="material-symbols-outlined">arrow_forward_ios</span>
+    </div>
+  </div>
+
+  <script src="countdown.js"></script>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+</body>
+</html>

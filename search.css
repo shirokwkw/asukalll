@@ -1,0 +1,130 @@
+:root {
+    --primary-bg: #98ff98c5; /* Background color */
+    --outline-color: #154415;
+    --text-color: #002a00; /* Darker text color */
+    --input-bg: #eaffea;
+    --button-bg: white;
+    --button-border: #064206;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Courier New', monospace;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primary-bg);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 800px; /* Decreased width for a more rectangular look */
+    padding: 20px;
+    background: white;
+    border: 3px solid var(--button-border);
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.rectangle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 10px;  /* Further reduced padding */
+    margin-bottom: 20px;
+    background-color: var(--input-bg);
+    border-radius: 15px;
+    height: 120px; /* Reduced height for more rectangular shape */
+}
+
+.rectangle img {
+    height: 120px; /* Reduced image size */
+    width: 120px; /* Reduced image size */
+    border-radius: 50%; /* Circular image */
+    object-fit: cover;
+    border: 3px solid var(--button-border); /* Circle outline around the image */
+}
+
+.rectangle .content {
+    flex: 1;
+    margin-left: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.rectangle .content .search-bar {
+    width: 100%; /* Ensure search bar takes up full width */
+    display: flex;
+    align-items: center;
+    background-color: var(--button-bg);
+    border: 2px solid var(--button-border);
+    border-radius: 30px;
+    padding: 5px;
+    position: relative;
+}
+
+.search-bar input {
+    border: none;
+    outline: none;
+    flex-grow: 1; /* Allow input to take up available space */
+    font-size: 1.2rem; /* Slightly smaller font size */
+    padding: 8px;
+    background-color: var(--button-bg);
+    color: var(--text-color);
+    font-weight: bold; /* Make text bold */
+}
+
+.search-bar .search-icon,
+.search-bar .back-icon {
+    cursor: pointer;
+    background: var(--button-bg);
+    border: none;
+    padding: 10px;
+    transition: background 0.3s, box-shadow 0.3s;
+}
+
+.search-bar .search-icon:hover,
+.search-bar .back-icon:hover {
+    background: var(--input-bg);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Ensure the icons are aligned */
+.search-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.search-bar input {
+    width: 100%; /* Ensure input fills the space */
+}
+
+/* Adjust the logo */
+.logo-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.logo {
+    font-family: 'Roboto', sans-serif;
+    font-size: 3rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #4285f4;
+}

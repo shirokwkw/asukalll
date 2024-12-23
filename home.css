@@ -1,0 +1,194 @@
+:root {
+    --primary-bg: #98ff98c5;
+    --icon-bg: #ffffcc;
+    --icon-border: #000000;
+    --text-color: #000000;
+    --heart-color: #ff0000;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Courier New', monospace;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primary-bg);
+    position: relative;
+    overflow: hidden;
+}
+
+.heart {
+    position: absolute;
+    width: 50px;
+    height: 45px;
+    animation: float 5s infinite ease-in-out;
+}
+
+.heart:before, .heart:after {
+    position: absolute;
+    content: "";
+    left: 25px;
+    top: 0;
+    width: 25px;
+    height: 40px;
+    background: var(--heart-color);
+    border-radius: 25px 25px 0 0;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+}
+
+.heart:after {
+    left: 0;
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+/* Positioning multiple hearts */
+.heart:nth-child(1) { top: 10%; left: 15%; animation-delay: 0s; }
+.heart:nth-child(2) { top: 25%; right: 20%; animation-delay: 1s; }
+.heart:nth-child(3) { bottom: 15%; left: 30%; animation-delay: 2s; }
+.heart:nth-child(4) { bottom: 20%; right: 10%; animation-delay: 3s; }
+.heart:nth-child(5) { top: 5%; right: 30%; animation-delay: 1.5s; }
+.heart:nth-child(6) { bottom: 10%; left: 5%; animation-delay: 2.5s; }
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+}
+
+.label {
+    padding: 10px 20px;
+    background-color: var(--icon-bg);
+    border-radius: 20px;
+    border: 2px solid var(--icon-border);
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+.icons {
+    display: flex;
+    gap: 30px;
+}
+
+.icon {
+    width: 80px;
+    height: 80px;
+    background-color: var(--icon-bg);
+    border: 2px solid var(--icon-border);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.icon:hover {
+    transform: scale(1.1);
+}
+
+.icon span {
+    font-size: 2rem;
+    color: var(--text-color);
+}
+
+/* Modals */
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.5);
+    transform-origin: center;
+    width: 88%;
+    max-width: 500px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    z-index: 10;
+    text-align: center;
+    opacity: 0;
+    visibility: hidden; /* Use visibility for smoother animations */
+    transition: transform 0.3s ease, opacity 0.3s ease, visibility 0s linear 0.3s;
+}
+
+.modal.active {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+    visibility: visible;
+    transition: transform 0.3s ease, opacity 0.3s ease, visibility 0s;
+}
+
+
+.modal textarea {
+    font-weight: 600;
+    width: 90%;
+    height: 400px;
+    font-size: 1.1rem;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: none;
+    
+}
+
+.modal .back-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: var(--icon-bg);
+    border: 2px solid var(--icon-border);
+    border-radius: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 5;
+}
+
+.overlay.active {
+    display: block;
+}
+
+.modal .lyrics {
+    font-size: 1.2rem;
+    font-weight: bold;
+    line-height: 1.5;
+    color: var(--text-color);
+    padding: 10px;
+    text-align: center;
+}

@@ -1,0 +1,141 @@
+:root {
+    --primary-bg: #98ff98c5; /* Background color */
+    --outline-color: #154415;
+    --text-color: #002a00; /* Darker text color */
+    --input-bg: #eaffea;
+    --button-bg: white;
+    --button-border: #064206;
+    --hover-bg: #98ff98c5; /* Light green for hover effect */
+    --error-color: red;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Courier New', monospace;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primary-bg);
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 600px;
+    padding: 20px;
+    background: white;
+    border: 2px solid var(--button-border);
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.illustration {
+flex: 1;
+height: 300px;
+width: 300px; /* Keep the square shape */
+background: url('https://media1.tenor.com/images/c791bb336c2ab8e31c97f604c8bc6dcb/tenor.gif?itemid=16517348') no-repeat center center;
+background-size: contain; /* Ensures the whole image is visible within the container */
+border: 0px solid var(--button-border); /* Thinner border */
+border-radius: 12px; /* Slightly rounded corners */
+margin-right: 20px;
+}
+
+
+
+
+.pin-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 350px;
+    gap: -10px; /* Add a 5px gap between elements */
+}
+
+h2 {
+    width: 100%;
+    height: 40px;
+    font-size: 1.5rem;
+    font-family: 'Courier New', monospace;
+    font-weight: 900; /* Increase the font weight for bolder text */
+    color: var(--text-color);
+    text-align: center;
+    background: none;
+    border: none;
+    outline: none;
+    letter-spacing: 2px;
+    caret-color: transparent;
+    position: relative;
+    margin-top: 20px; /* Move "Enter Passcode" down by 10px */
+}
+
+h2::after {
+    content: attr(data-placeholder);
+    font-weight: 900; /* Match the boldness of the entered text */
+    color: #002a00; /* Darker color for better visibility */
+    opacity: 1; /* Fully opaque for showy text */
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.buttons button {
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
+    color: var(--text-color);
+    background: var(--button-bg);
+    border: 2px solid var(--button-border);
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600; /* Slightly bolder numbers */
+    transition: background 0.3s, box-shadow 0.3s;
+}
+
+.buttons button:hover {
+    background: var(--hover-bg); /* Light green background on hover */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.buttons .enter, .buttons .backspace {
+    background: var(--button-bg);
+    border: 2px solid var(--button-border);
+}
+
+.error {
+    color: var(--error-color);
+    font-size: 0.8rem;
+    display: none;
+}
+
+.shake {
+    animation: shake 0.3s;
+}
+
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-10px);
+    }
+    50% {
+        transform: translateX(10px);
+    }
+    75% {
+        transform: translateX(-10px);
+    }
+}

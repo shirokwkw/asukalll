@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search</title>
+    <!-- Import Google Material Symbols -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_back,search" />
+    <link rel="stylesheet" href="search.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+<body>
+    <div   class="container" data-aos="fade-down"
+    data-aos-duration 1000>
+        
+        <!-- Logo Section (Removed Nilgle as per request) -->
+        <div class="logo-container">
+            <!-- Logo section omitted -->
+        </div>
+
+        <!-- First Rectangle (Question Section) -->
+        <div  class="rectangle" id="question-section">
+            <img src="https://i.pinimg.com/originals/6c/dd/c5/6cddc56123e9a8005536e3c65eb7d44d.jpg" alt="Image">
+            <div class="content">
+                <!-- Search Bar with Input -->
+                <div class="search-bar">
+                    <!-- Back Icon using the arrow_back icon from Material Symbols -->
+                    <div class="back-icon">
+                        <span  id="back" class="material-symbols-outlined">arrow_back</span>
+                    </div>
+                    <input type="text" id="search-input" value="How long we been together?" onfocus="this.select()">
+                    <!-- Search Icon -->
+                    <div class="search-icon" id="search-icon">
+                        <span class="material-symbols-outlined">search</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+ 
+      <script src="search.js"></script>
+      <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+      <script>
+        AOS.init();
+      </script>
+</body>
+</html>

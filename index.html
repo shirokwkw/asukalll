@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Countdown to Unlock</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+  <style>
+    :root {
+      --primary-bg: #98ff98c5;
+      --text-color: #002a00;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: var(--primary-bg);
+    }
+
+    .container {
+      display: flex;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+      padding: 20px;
+      width: 1000px;
+      height: auto;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .photo {
+      flex: 1;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      margin-right: 20px;
+    }
+
+    .photo img {
+      width: 100%;
+      max-width: 260px;
+    }
+
+    .content {
+      flex: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      margin-left: 20px;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+      color: var(--text-color);
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    .timer {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    .box {
+      width: 80px;
+      height: 90px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: transparent;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+    }
+
+    .box span {
+      font-size: 3rem;
+      font-weight: 600;
+      color: var(--text-color);
+    }
+
+    .label {
+      font-size: 1rem;
+      color: var(--text-color);
+      margin-top: 5px;
+      font-weight: 500;
+    }
+
+    .next {
+      position: absolute;
+      right: 20px;
+      bottom: 20px;
+      font-size: 2rem;
+      color: black;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+
+    .next:hover {
+      color: green;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="photo">
+      <img src="https://media.tenor.com/cYAH8xR6-RkAAAAC/waiting-for-you-cat.gif" alt="Photo">
+    </div>
+    <div class="content">
+      <h1>The site will unlock on Dec 25, 2024, 4:54PM HIIHIHIH</h1>
+      <div class="timer" id="countdown"></div>
+    </div>
+  </div>
+
+  <script>
+    const unlockDate = new Date('Dec 20, 2024 16:54:00').getTime();
+
+    function updateTimer() {
+      const now = new Date().getTime();
+      const distance = unlockDate - now;
+
+      if (distance <= 0) {
+        window.location.href = 'login.html'; // Redirect to the main page
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      const countdownEl = document.getElementById('countdown');
+      countdownEl.innerHTML = `
+        ${createBox(days, 'Days')}
+        ${createBox(hours, 'Hours')}
+        ${createBox(minutes, 'Minutes')}
+        ${createBox(seconds, 'Seconds')}
+      `;
+
+      const boxes = countdownEl.getElementsByClassName('box');
+      for (let box of boxes) {
+        box.style.opacity = 1;
+      }
+    }
+
+    function createBox(value, label) {
+      return `
+        <div class="box">
+          <span>${value.toString().padStart(2, '0')}</span>
+          <div class="label">${label}</div>
+        </div>
+      `;
+    }
+
+    setInterval(updateTimer, 1000);
+    updateTimer();
+  </script>
+</body>
+</html>
