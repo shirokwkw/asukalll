@@ -139,3 +139,55 @@ h2::after {
         transform: translateX(-10px);
     }
 }
+
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Stack elements vertically */
+        width: 90%; /* Adjusts to occupy most of the screen */
+        max-width: 400px; /* Limits max width */
+        padding: 15px;
+        box-shadow: none; /* Simplify shadows for smaller screens */
+    }
+
+    .illustration {
+        width: 100%; /* Makes the illustration responsive */
+        height: auto; /* Maintains aspect ratio */
+        margin: 0 auto 20px; /* Center illustration with margin below */
+    }
+
+    .pin-section {
+        gap: 10px; /* Adjust spacing for smaller screens */
+    }
+
+    .buttons {
+        gap: 8px; /* Smaller gaps between buttons */
+    }
+
+    .buttons button {
+        width: 50px; /* Adjust size of buttons */
+        height: 50px;
+        font-size: 1.2rem;
+    }
+
+    h2 {
+        font-size: 1.2rem; /* Slightly smaller header text */
+        letter-spacing: 1px; /* Reduce spacing */
+    }
+}
+
+@media (max-width: 480px) {
+    .buttons button {
+        width: 45px;
+        height: 45px;
+        font-size: 1rem; /* Smaller font for very small screens */
+    }
+
+    h2 {
+        font-size: 1rem; /* Smaller font size for very small screens */
+    }
+
+    .error {
+        font-size: 0.7rem; /* Adjust error font size */
+    }
+}
