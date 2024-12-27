@@ -128,3 +128,28 @@ body {
     letter-spacing: 2px;
     color: #4285f4;
 }
+
+@media (max-width: 480px) {
+    .rectangle img {
+        height: 80px; /* Further reduce image size */
+        width: 80px;
+    }
+
+    .search-bar {
+        padding: 4px;
+    }
+
+    .search-bar input {
+        font-size: 1rem; /* Smaller font size */
+        padding: 6px;
+        text-align: center; /* Center the text for readability */
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+
+    .search-bar .search-icon,
+    .search-bar .back-icon {
+        padding: 6px;
+    }
+}
