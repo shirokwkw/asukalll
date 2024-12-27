@@ -110,3 +110,73 @@ transition: color 0.3s ease;
   .next:hover {
     color: green;
   }
+
+  @media (max-width: 768px) {
+    .container {
+        padding: 15px;
+        flex-direction: column; /* Stack content vertically */
+        align-items: center;
+    }
+
+    .photo {
+        margin-bottom: 15px;
+    }
+
+    h1 {
+        font-size: 1.3rem; /* Slightly smaller heading */
+    }
+
+    .timer {
+        gap: 15px; /* Slightly bigger gap for better spacing */
+    }
+
+    .box {
+        width: 60px;
+        height: 70px;
+    }
+
+    .box span {
+        font-size: 1.8rem;
+    }
+
+    .label {
+        font-size: 0.7rem;
+    }
+
+    .next {
+        bottom: 10px;
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .photo img {
+        max-width: 200px;
+    }
+
+    h1 {
+        font-size: 1.2rem; /* Smaller heading for very small screens */
+    }
+
+    .timer {
+        gap: 10px; /* Smaller gap for compact layout */
+    }
+
+    .box {
+        width: 50px;
+        height: 60px;
+    }
+
+    .box span {
+        font-size: 1.6rem;
+    }
+
+    .label {
+        font-size: 0.6rem;
+    }
+
+    .next {
+        bottom: 10px;
+        font-size: 1.2rem;
+    }
+}
